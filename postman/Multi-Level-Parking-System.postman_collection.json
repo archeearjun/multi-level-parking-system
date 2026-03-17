@@ -1,0 +1,200 @@
+{
+  "info": {
+    "_postman_id": "2ca25dc1-55ea-4e36-8e1f-90a7c1ca9218",
+    "name": "Multi-Level Parking System",
+    "description": "Portfolio-ready Spring Boot API collection for the multi-level parking system project.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/actuator/health",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "actuator",
+            "health"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Swagger Docs",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/swagger-ui.html",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "swagger-ui.html"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Park Vehicle",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"licensePlate\": \"KA01AB1234\",\n  \"vehicleType\": \"EV_CAR\",\n  \"chargingRequested\": true,\n  \"entryTime\": \"2026-03-17T09:30:00\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/parking/entries",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "parking",
+            "entries"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Exit Vehicle",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"licensePlate\": \"KA01AB1234\",\n  \"exitTime\": \"2026-03-17T12:45:00\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/parking/exits",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "parking",
+            "exits"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Dashboard",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/analytics/dashboard",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "analytics",
+            "dashboard"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Run Simulation",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"scenarioName\": \"weekday-rush-short\",\n  \"startTime\": \"2026-03-17T08:00:00\",\n  \"totalSteps\": 24,\n  \"stepMinutes\": 5,\n  \"arrivalProbability\": 0.85,\n  \"maxArrivalsPerStep\": 3,\n  \"minParkingMinutes\": 45,\n  \"maxParkingMinutes\": 180,\n  \"seed\": 424242\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/operations/simulations",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "operations",
+            "simulations"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Run Allocator Benchmark",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"scenarioName\": \"allocator-benchmark\",\n  \"startTime\": \"2026-03-17T08:00:00\",\n  \"totalSteps\": 24,\n  \"stepMinutes\": 5,\n  \"arrivalProbability\": 1.0,\n  \"maxArrivalsPerStep\": 3,\n  \"minParkingMinutes\": 30,\n  \"maxParkingMinutes\": 150,\n  \"seed\": 98765\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/operations/benchmarks/allocators",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "operations",
+            "benchmarks",
+            "allocators"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Reset Live System",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/operations/reset",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "operations",
+            "reset"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ]
+}

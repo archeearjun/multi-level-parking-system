@@ -1,0 +1,11 @@
+services:
+  - type: web
+    runtime: docker
+    name: multi-level-parking-system-api
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /actuator/health
+    autoDeployTrigger: commit
+    envVars:
+      - key: PORT
+        value: 10000
