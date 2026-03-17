@@ -10,6 +10,8 @@ Spring Boot REST API for managing a multi-level parking facility with:
 - Swagger/OpenAPI documentation
 - Docker packaging
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/archeearjun/multi-level-parking-system)
+
 This version is portfolio-ready and interview-ready: it is not just a console demo. It exposes real HTTP endpoints, has integration tests, packages as a Boot jar, and is structured so the core parking domain can later move to a database-backed production system.
 
 ## Tech Stack
